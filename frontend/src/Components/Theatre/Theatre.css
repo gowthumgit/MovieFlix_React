@@ -1,0 +1,38 @@
+ 
+.timeButton{
+    background-color: transparent;
+    color: limegreen;
+    border-color: limegreen;
+    border-width: 1.5px ;
+  }
+  
+  .timeButton:hover{
+    background-color: transparent;
+    color: blue;
+    border-color: blue;
+    border-width: 1.5px ;
+  }
+  
+  .cardtheatres{
+    background-color:#e3e3e3;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    margin-left: 12%;
+    margin-bottom: 0.5%;
+  }
+  
+  .leftspace{
+    margin-left: 20px;
+   }
+   .movieImage{
+    border-radius: 10px;
+    margin-top : 15px;
+    margin-bottom:15px;
+    width : 200px;
+    height : 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+  }
+  
