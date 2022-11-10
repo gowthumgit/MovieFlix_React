@@ -12,10 +12,11 @@ import Payment from './Components/Payment.js/Payment';
 import Booking from './Components/Booking/Booking';
 import Wallet from './Components/Wallet/Wallet';
 import SeatList from './Components/Audi/Seat-List';
+import History from './Components/Home/History/History';
 function App() {
   return (
     <div className="App">
-
+      
             <UserAuthContextProvider>
               <Routes>
                 <Route
@@ -34,6 +35,7 @@ function App() {
                 <Route path ="/booking" element={<Booking/>}/>
                 <Route path ="/wallet" element={<Wallet/>}/>
                 <Route path ="/seat" element={<SeatList/>}/>
+                <Route path ="/history" element={<History/>}/>
               </Routes>
             </UserAuthContextProvider>
       <Footer />

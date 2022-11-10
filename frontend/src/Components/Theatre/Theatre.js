@@ -49,6 +49,10 @@ export default function Theatre() {
         navigate('/home');
         // console.log("At line 89 im home page working")
     }
+    function seatpage() {
+        navigate('/seat');
+        // console.log("At line 89 im home page working")
+    }
     
     const [locationLocalStorage, location] = useState([]);
     function LocationIntilaizer() {
@@ -131,7 +135,7 @@ export default function Theatre() {
                                     <div>
                                         {theatre.showTime.map((times) => {
                                             return (
-                                                <span ><button type="button " className="timeButton btn-primary leftspace " >{times}</button></span>
+                                                <span ><button type="button " className="timeButton btn-primary leftspace " onClick={seatpage}>{times}</button></span>
                                             )
                                         })}
 

@@ -205,6 +205,7 @@ export default function DefaultHome() {
             <div className="mx-5 mt-4" style={{ textAlign: "center" }}>
                 <h2>Recommended Movies</h2>
             </div>
+            <Container>
             <CardGroup>
                 <Row>
 
@@ -235,6 +236,7 @@ export default function DefaultHome() {
                     }
                 </Row>
             </CardGroup>
+            </Container>
         </>
     )
 }

@@ -37,6 +37,10 @@ app.use('/audi',audiRoute)
 const TheatreRoute = require('./app/routes/theatreRoutes')
 app.use('/theatre',TheatreRoute)
 
+const HistoryRoute = require('./app/routes/historyRoutes')
+app.use('/history',HistoryRoute)
+
+
 const SeatRoute = require('./app/routes/seatRoutes')
 app.use('/seat',SeatRoute)
 
