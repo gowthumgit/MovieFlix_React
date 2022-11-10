@@ -22,6 +22,6 @@ var schema=new mongoose.Schema({
   
 });
 
-var user = new mongoose.model('user',schema);
+var userReact = new mongoose.model('userReact',schema);
 
-module.exports = user
+module.exports = userReact

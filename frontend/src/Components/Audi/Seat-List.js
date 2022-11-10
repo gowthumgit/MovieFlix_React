@@ -24,7 +24,7 @@ export default function SeatList(){
         localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));
     },[selectedSeats])
     return(
-        <main>
+        <main className="seatbody">
             <div class="screen"></div>
             <span >
             {seats.map((seat, index) => (

@@ -13,9 +13,9 @@ export default class Seat extends React.Component{
   }
   render(){
     return(
-      <div className="seatbody">
+     
       <button className="seat" onClick={this.handleClick}></button>
-      </div>
+      
     )
   }
 }
