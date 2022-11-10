@@ -14,7 +14,7 @@ import Wallet from './Components/Wallet/Wallet';
 function App() {
   return (
     <div className="App">
-      <Container >
+      
         <Row>
           <Col>
             <UserAuthContextProvider>
@@ -36,7 +36,7 @@ function App() {
             </UserAuthContextProvider>
           </Col>
         </Row>
-      </Container>
+      
       <Footer />
     </div>
   );

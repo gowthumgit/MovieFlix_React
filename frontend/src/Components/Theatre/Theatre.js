@@ -106,7 +106,7 @@ export default function Theatre() {
             <div className="top_space bg-light">
 
 
-                <div className="cardtheatre bg-secondary" style={{ textAlign: "center" }}  >
+                <div className="cardtheatre" style={{ textAlign: "center",  }}  >
                     <h1>{movieLocalStorage.name} - {movieLocalStorage.language}</h1>
                     <img className="movieImage" src={movieLocalStorage.image_url} />
 
