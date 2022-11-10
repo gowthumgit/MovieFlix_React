@@ -10,6 +10,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import Login from './Components/Login';
 import Signup from './Components/SignUp';
 import PhoneSignUp from './Components/PhoneSignUp';
+import Wallet from './Components/Wallet/Wallet';
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/phonesignup" element={<PhoneSignUp />} />
                 <Route path ="/theatre" element={<Theatre/>}/>
+                <Route path ="/wallet" element={<Wallet/>}/>
               </Routes>
             </UserAuthContextProvider>
           </Col>
