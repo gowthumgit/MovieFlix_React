@@ -1,34 +1,16 @@
 import React from "react";
 import axios from "axios";
-import './Theatre.css';
+import './Payment.css';
 import { useNavigate } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
 
-import { useEffect, useState } from "react";
-
-export default function Theatre() {
-
-    const [theatres, setTheatres] = useState([]);
-    useEffect(function () {
-        async function getAllTheatres() {
-            try {
-                const response = await axios.get("http://localhost:7070/theatre")
-                setTheatres(response.data);
+import { useEffect,useState } from "react";
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 
-             //   console.log("In Default home at line 15")
-
-               // console.log(response.data);
-            }
-
-            catch (error) {
-            }
-
-        }
-
-        getAllTheatres();
-    }, []);
+export default function Payment(){
+    
 
     const [movieLocalStorage, movieLocalStorageData] = useState([]);
     function TheatreIntilaizer() {
@@ -42,14 +24,12 @@ export default function Theatre() {
     }
     TheatreIntilaizer();
 
-
-
     const navigate = useNavigate();
     function homepage() {
         navigate('/home');
         // console.log("At line 89 im home page working")
     }
-    
+
     const [locationLocalStorage, location] = useState([]);
     function LocationIntilaizer() {
 
@@ -64,9 +44,12 @@ export default function Theatre() {
     }
     LocationIntilaizer();
 
+    const navigateBook = () =>{
+        navigate('/booking');
+       };
 
 
-    return (
+    return(
         <>
             <nav className="navbar navbar-expand-sm navbar-light fixed-top bg-dark">
                 <a className="navbar-brand" href="#"><img src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width="100" onClick={homepage} alt="" /></a>
@@ -96,14 +79,12 @@ export default function Theatre() {
                         >SignIn</NavLink>
 
                     </ul>
-
                 </div>
-
             </nav>
 
 
 
-
+            
             <div className="top_space bg-light">
 
 
@@ -114,50 +95,40 @@ export default function Theatre() {
                     <h5>{movieLocalStorage.genre}</h5>
                     <br></br>
                 </div>
+                <div className="main-container ">
 
-                {
+                    <div className="card summary-container" >
+                        <h1 className="center">Payment Summary</h1>
+                        <div className="card-body">
+                            <ul className="list-group">
+                                <li className="list-group-item"><span>Total Tickets   <i class="bi bi-ticket-perforated-fill"></i></span> <span>2</span></li>
 
-                    theatres.map((theatre) => {
-                        return (
+                                <li className="list-group-item"><span>Seat Numbers   <i class="bi bi-archive-fill"></i> </span> <span>S1,S2</span> </li>
+                                
+                                <li className="list-group-item"><span>Tickets Each Price   <i class="bi bi-cash"></i> </span> <span>Rs.240</span> </li>
 
+                                <li className="list-group-item"><span>Tickets Subtotal   <i class="bi bi-bag-check-fill"></i></span> <span>Rs.480</span></li>
 
-                            <div className="cardtheatres w-75 " >
+                                <li className="list-group-item"><span>Name   <i class="bi bi-person-circle"></i> </span> <span>Rama</span></li>
 
+                                <li className="list-group-item"><span>Email   <i class="bi bi-envelope-fill"></i></span> <span>Rama@gmail.com</span></li> 
 
-                                <div className="card-body">
-                                    <h5 className="card-title">{theatre.theatreName}:{theatre.theatreType}</h5>
-                                    <p className="card-text">[M-Ticket] [Food & Beverage]</p>
-                                    <p className="card-text"></p>
-                                    <div>
-                                        {theatre.showTime.map((times) => {
-                                            return (
-                                                <span ><button type="button " className="timeButton btn-primary leftspace " >{times}</button></span>
-                                            )
-                                        })}
-
-
-                                    </div>
-                                </div>
+                            </ul>
+                            <p className="d-flex1"><span>Payment Amount <i class="bi bi-wallet"></i></span> <span>Rs.480</span></p>
+                            <div className="new">
+                                <button className="btn btn-primary" onClick={navigateBook} data-toggle="modal"><i class="bi bi-lock"></i> Make Payment </button>
+                                
                             </div>
+                        </div>
+                    </div>
+                </div>
 
-
-                        )
-                    })
-                }
 
 
 
             </div>
 
-
-
-
         </>
-
     )
 
-
-
-
 }
-

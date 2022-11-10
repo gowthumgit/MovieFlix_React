@@ -8,6 +8,8 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import Login from './Components/Login';
 import Signup from './Components/SignUp';
 import PhoneSignUp from './Components/PhoneSignUp';
+import Payment from './Components/Payment.js/Payment';
+import Booking from './Components/Booking/Booking';
 import Wallet from './Components/Wallet/Wallet';
 import SeatList from './Components/Audi/Seat-List';
 function App() {
@@ -28,6 +30,8 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/phonesignup" element={<PhoneSignUp />} />
                 <Route path ="/theatre" element={<Theatre/>}/>
+                <Route path ="/payment" element={<Payment/>}/>
+                <Route path ="/booking" element={<Booking/>}/>
                 <Route path ="/wallet" element={<Wallet/>}/>
                 <Route path ="/seat" element={<SeatList/>}/>
               </Routes>
