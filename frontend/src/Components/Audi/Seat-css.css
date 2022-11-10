@@ -1,8 +1,13 @@
-/* @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap"); */
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 /* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); */
+<<<<<<< HEAD
 
 .seatbody {
+=======
+/* 
+body {
+>>>>>>> 1082e7b51c6617e5e4a1679cef8810d0c0a33adc
 	font-family: "Montserrat", sans-serif;
 	min-height: 100vh;
 	display: flex;
@@ -100,4 +105,4 @@ p.text span {
 .credits a {
   color: #fff;
 }
-
+ */

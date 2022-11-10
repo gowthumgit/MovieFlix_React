@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useUserAuth } from "../context/UserAuthContext";
+import axios from "axios";
 
 const PhoneSignUp = () => {
   const [error, setError] = useState("");
@@ -14,6 +15,12 @@ const PhoneSignUp = () => {
   const [result, setResult] = useState("");
   const { setUpRecaptha } = useUserAuth();
   const navigate = useNavigate();
+  const [user, setUser] = useState([])
+
+  
+  useEffect(()=>{
+    getUsers()
+  },[])
 
   const getOtp = async (e) => {
     e.preventDefault();
@@ -30,12 +37,42 @@ const PhoneSignUp = () => {
     }
   };
 
+  function loginOrCreateUser(number){
+    var flag = false;
+    user.forEach(function(item){
+      if(item.userId === number){
+        localStorage.setItem("User", JSON.stringify(item));
+        flag = true
+      }
+    })
+    if(!flag){
+        const user = {
+          userId : number,
+          userPhoneNo: number,
+          userBalance: 0
+        }
+        try{
+          const response = axios.post('http://localhost:7070/user',user)
+          console.log(response)
+        }catch(error){
+          console.log(error)
+        }
+      
+    }
+  }
+
+  async function getUsers(){
+    const res = await axios.get('http://localhost:7070/user')
+    setUser(res.data)
+  }
+
   const verifyOtp = async (e) => {
     e.preventDefault();
     setError("");
     if (otp === "" || otp === null) return;
     try {
       await result.confirm(otp);
+      loginOrCreateUser(number)
       navigate("/home");
     } catch (err) {
       setError(err.message);

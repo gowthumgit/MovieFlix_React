@@ -1,17 +1,9 @@
 import React, {useEffect, useState, useRef} from "react";
 import './Booking.css';
 import QRCode from "react-qr-code";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-
 import { useNavigate } from "react-router-dom";
-
 import { NavLink } from "react-router-dom";
-
 import ReactToPrint from "react-to-print";
-
-
-
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 

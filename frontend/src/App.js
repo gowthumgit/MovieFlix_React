@@ -15,8 +15,8 @@ import SeatList from './Components/Audi/Seat-List';
 import History from './Components/Home/History/History';
 function App() {
   return (
-    <div className="App">
-      
+    <div>
+
             <UserAuthContextProvider>
               <Routes>
                 <Route

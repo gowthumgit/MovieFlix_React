@@ -11,8 +11,7 @@ exports.create = async (req,res) => {
         userId:req.body.userId,
         userEmail:req.body.userEmail,
         userPassword:req.body.userPassword,
-        userLocation :req.body.userLocation,
-        userLanguage :req.body.userLanguage,
+        userPhoneNo :req.body.userPhoneNo,
         userBalance :req.body.userBalance,
         
     });

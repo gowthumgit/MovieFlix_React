@@ -11,7 +11,7 @@ export default function SeatList(){
     useEffect(function(){
         async function getAllSeats(){
             try{
-                const response = await axios.get('http://localhost:4000/seat/get-all-seats')
+                const response = await axios.get('http://localhost:7070/seat/get-all-seats')
                 setSeats(response.data)
             }catch(error){
                 console.log(error)
