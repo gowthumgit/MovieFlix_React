@@ -12,6 +12,7 @@ import Signup from './Components/SignUp';
 import PhoneSignUp from './Components/PhoneSignUp';
 import Payment from './Components/Payment.js/Payment';
 import Booking from './Components/Booking/Booking';
+import Wallet from './Components/Wallet/Wallet';
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
                 <Route path ="/theatre" element={<Theatre/>}/>
                 <Route path ="/payment" element={<Payment/>}/>
                 <Route path ="/booking" element={<Booking/>}/>
+                <Route path ="/wallet" element={<Wallet/>}/>
               </Routes>
             </UserAuthContextProvider>
           </Col>
