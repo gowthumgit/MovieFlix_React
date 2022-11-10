@@ -14,7 +14,7 @@ import Wallet from './Components/Wallet/Wallet';
 import SeatList from './Components/Audi/Seat-List';
 function App() {
   return (
-    <div className="App">
+    <div>
 
             <UserAuthContextProvider>
               <Routes>

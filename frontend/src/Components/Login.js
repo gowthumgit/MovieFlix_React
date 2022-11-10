@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/UserAuthContext";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,22 +12,69 @@ const Login = () => {
   const [error, setError] = useState("");
   const { logIn, googleSignIn } = useUserAuth();
   const navigate = useNavigate();
+  const [user, setUser] = useState([])
 
+  useEffect(()=>{
+    getUsers()
+  },[])
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await logIn(email, password);
+      loginUser(email)
       navigate("/home");
     } catch (err) {
       setError(err.message);
     }
   };
 
+  function loginOrCreateUser(number){
+    var flag = false
+    user.forEach(function(item){
+      if(item.userId === number){
+        localStorage.setItem("User", JSON.stringify(item));
+        flag = true
+      }
+    })
+    if(!flag){
+        const user = {
+          userId : number,
+          userPhoneNo: number,
+          userBalance: 0
+        }
+        try{
+          const response = axios.post('http://localhost:7070/user',user)
+          console.log(response)
+        }catch(error){
+          console.log(error)
+        }
+      
+    }
+  }
+
+  function loginUser(email){
+    console.log("Im in loginUser function")
+    console.log(user)
+    user.forEach(function(item){
+      console.log(item.userId === email)
+      if(item.userId === email){
+        console.log("Im in if")
+        localStorage.setItem("User", JSON.stringify(item));
+      }
+    })
+  }
+  
+  async function getUsers(){
+    const res = await axios.get('http://localhost:7070/user')
+    setUser(res.data)
+  }
+   
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await googleSignIn();
+      const res = await googleSignIn();
+      loginOrCreateUser(res.user.email)
       navigate("/home");
     } catch (error) {
       console.log(error.message);
@@ -83,5 +131,8 @@ const Login = () => {
     </>
   );
 };
+
+
+
 
 export default Login;

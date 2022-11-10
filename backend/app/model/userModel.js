@@ -8,26 +8,16 @@ var schema=new mongoose.Schema({
     },
     userEmail:{
         type:String,
-        required:true,
-        unique:true
     },
     userPassword:{
-        type:String,
-        required:true,
-        
+        type:String,        
     },
     
-    userLocation:{
+    userPhoneNo:{
         type:String,
-        
-    },
-    userLanguage :{
-        type:String,
-        
     },
     userBalance :{
         type:Number,
-        
     }
   
 });

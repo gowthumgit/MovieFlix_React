@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
+import axios from "axios";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    createUser(email,password)
     try {
       await signUp(email, password);
       navigate("/");
@@ -21,6 +23,21 @@ const Signup = () => {
       setError(err.message);
     }
   };
+
+  const createUser = async (email,password)=>{
+    const user = {
+      userId : email,
+      userEmail: email,
+      userPassword: password,
+      userBalance: 0
+    }
+    try{
+      const response = await axios.post('http://localhost:7070/user',user)
+      console.log(response)
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   return (
     <>
