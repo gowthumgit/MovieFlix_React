@@ -10,6 +10,8 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import Login from './Components/Login';
 import Signup from './Components/SignUp';
 import PhoneSignUp from './Components/PhoneSignUp';
+import Payment from './Components/Payment.js/Payment';
+import Booking from './Components/Booking/Booking';
 function App() {
   return (
     <div className="App">
@@ -30,6 +32,8 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/phonesignup" element={<PhoneSignUp />} />
                 <Route path ="/theatre" element={<Theatre/>}/>
+                <Route path ="/payment" element={<Payment/>}/>
+                <Route path ="/booking" element={<Booking/>}/>
               </Routes>
             </UserAuthContextProvider>
           </Col>
