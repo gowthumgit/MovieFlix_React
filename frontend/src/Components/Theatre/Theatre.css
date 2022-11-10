@@ -12,7 +12,11 @@
     border-color: blue;
     border-width: 1.5px ;
   }
-  
+  .cardtheatre{
+    width: 100%;
+    background-color: dimgrey;
+  }
+
   .cardtheatres{
     background-color:#e3e3e3;
     box-shadow: none;

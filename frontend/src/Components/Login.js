@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/UserAuthContext";
 import axios from "axios";
+import "./Login.css";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -80,59 +82,79 @@ const Login = () => {
       console.log(error.message);
     }
   };
-
   return (
-    <>
-      <div className="p-4 box">
-        <h2 className="mb-3">Firebase Auth Login</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              placeholder="Email address"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+    <div className="body">
+      <div className="container">
+        <div className="row px-3">
+          <div className="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+            <div className="img-left d-none d-md-flex"></div>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+            <div className="card-body">
+              <h2 className="title text-center mt-4">
+                Login
+              </h2>
+              {error && <Alert variant="danger">{error}</Alert>}
+              <Form onSubmit={handleSubmit}>
+                <div className="form-input">
+                  <div className="input-field" >
+                    <span><i className="fa fa-user"></i></span>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Control
+                        type="email"
+                        placeholder="Email address"
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </Form.Group>
+                  </div>
+                </div>
 
-          <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
-              Log In
-            </Button>
+                <div className="form-input">
+                  <div className="input-field">
+                    <span><i className="fa fa-lock"></i></span>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </Form.Group>
+                  </div>
+                </div>
+
+
+
+                <div className="d-grid gap-2">
+                  <Button variant="primary" type="Submit">
+                    Log In
+                  </Button>
+                </div>
+              </Form>
+              <hr />
+              <div className="external">
+                <div>
+                  <GoogleButton
+                    className="g-btn"
+                    type="dark"
+                    onClick={handleGoogleSignIn}
+                  />
+                </div>
+                <Link to="/phonesignup">
+                  <div className="d-grid gap-2 mt-3 button">
+                    <Button variant="success" type="Submit">
+                      Sign in with Phone
+                    </Button>
+                  </div>
+                </Link>
+              </div>
+              <div className="p-4 box mt-3 text-center">
+                Don't have an account? <Link to="/signup">Sign up</Link>
+              </div>
+            </div>
           </div>
-        </Form>
-        <hr />
-        <div>
-          <GoogleButton
-            className="g-btn"
-            type="dark"
-            onClick={handleGoogleSignIn}
-          />
         </div>
-        <Link to="/phonesignup">
-          <div className="d-grid gap-2 mt-3">
-            <Button variant="success" type="Submit">
-              Sign in with Phone
-            </Button>
-          </div>
-        </Link>
-      </div>
-      <div className="p-4 box mt-3 text-center">
-        Don't have an account? <Link to="/signup">Sign up</Link>
-      </div>
-    </>
-  );
-};
-
-
-
+      </div >
+    </div >
+  )
+}
 
 export default Login;

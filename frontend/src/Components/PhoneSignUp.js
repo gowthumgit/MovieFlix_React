@@ -81,49 +81,65 @@ const PhoneSignUp = () => {
 
   return (
     <>
-      <div className="p-4 box">
-        <h2 className="mb-3">Firebase Phone Auth</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={getOtp} style={{ display: !flag ? "block" : "none" }}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <PhoneInput
-              defaultCountry="IN"
-              value={number}
-              onChange={setNumber}
-              placeholder="Enter Phone Number"
-            />
-            <div id="recaptcha-container"></div>
-          </Form.Group>
-          <div className="button-right">
-            <Link to="/">
-              <Button variant="secondary">Cancel</Button>
-            </Link>
-            &nbsp;
-            <Button type="submit" variant="primary">
-              Send Otp
-            </Button>
-          </div>
-        </Form>
+      <div className="body">
+        <div className="container">
+          <div className="row px-3">
+            <div className="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+              <div className="img-left d-none d-md-flex"></div>
 
-        <Form onSubmit={verifyOtp} style={{ display: flag ? "block" : "none" }}>
-          <Form.Group className="mb-3" controlId="formBasicOtp">
-            <Form.Control
-              type="otp"
-              placeholder="Enter OTP"
-              onChange={(e) => setOtp(e.target.value)}
-            />
-          </Form.Group>
-          <div className="button-right">
-            <Link to="/">
-              <Button variant="secondary">Cancel</Button>
-            </Link>
-            &nbsp;
-            <Button type="submit" variant="primary">
-              Verify
-            </Button>
+              <div className="card-body">
+                <h2 className="title text-center mt-4">
+                  Phone
+                </h2>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <Form onSubmit={getOtp} style={{ display: !flag ? "block" : "none" }}>
+                  <div className="form-input">
+                    <div className="input-field" >
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <PhoneInput
+                          defaultCountry="IN"
+                          value={number}
+                          onChange={setNumber}
+                          placeholder="Enter Phone Number"
+                        />
+                        <div id="recaptcha-container"></div>
+                      </Form.Group>
+                    </div>
+                  </div>
+
+                  <div className="button-right">
+                    <Link to="/">
+                      <Button variant="secondary">Cancel</Button>
+                    </Link>
+                    &nbsp;
+                    <Button type="submit" variant="primary">
+                      Send Otp
+                    </Button>
+                  </div>
+                </Form>
+                <Form onSubmit={verifyOtp} style={{ display: flag ? "block" : "none" }}>
+                  <Form.Group className="mb-3" controlId="formBasicOtp">
+                    <Form.Control
+                      type="otp"
+                      placeholder="Enter OTP"
+                      onChange={(e) => setOtp(e.target.value)}
+                    />
+                  </Form.Group>
+                  <div className="button-right">
+                    <Link to="/">
+                      <Button variant="secondary">Cancel</Button>
+                    </Link>
+                    &nbsp;
+                    <Button type="submit" variant="primary">
+                      Verify
+                    </Button>
+                  </div>
+                </Form>
+              </div>
+            </div>
           </div>
-        </Form>
-      </div>
+        </div >
+      </div >
     </>
   );
 };
