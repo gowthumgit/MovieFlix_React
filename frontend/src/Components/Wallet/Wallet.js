@@ -8,7 +8,14 @@ import { useEffect, useState } from "react";
 import "react-credit-cards/es/styles-compiled.css";
 
 export default function Wallet() {
-
+    const initialState = {
+        userId: "",
+        userEmail: "",
+        userPassword: "",
+        userPhoneNo: "",
+        userBalance: "",
+        
+    };
 
 
     const navigate = useNavigate();
@@ -20,21 +27,31 @@ export default function Wallet() {
     function LocationIntilaizer() {
 
         useEffect(() => {
-            //logic for getting a value from local storage stored under the key 'key'
             const locationLocalStorage = localStorage.getItem('location')
-            console.log("At line 58 im home page working")
-            console.log(locationLocalStorage)
             location(JSON.parse(locationLocalStorage))
         }, [])
 
     }
     LocationIntilaizer();
 
+    const [userLocalStorage, userStorage] = useState([]);
+    function UserIntilaizer() {
+
+        useEffect(() => {
+            const userLocalStorage = localStorage.getItem('User')
+            userStorage(JSON.parse(userLocalStorage))
+        }, [])
+
+    }
+    UserIntilaizer();
+
+
     const [data, setData] = useState({
-        cvv: "",
+        cvc: "",
         expiry: "",
         name: "",
-        number: ""
+        number: "",
+        amount:""
     });
     const handleInputChange = (e) => {
         setData({
@@ -43,7 +60,30 @@ export default function Wallet() {
         });
     };
 
+function Moneyadd(){
+    console.log("At Wallet lin 56")
+    console.log(data.amount);
+    console.log(userLocalStorage.userBalance); 
+    userLocalStorage.userBalance=Number(userLocalStorage.userBalance)+Number(data.amount);
+    const FinalState = {
+        userId: userLocalStorage.userId,
+        userEmail: userLocalStorage.userEmail,
+        userPassword: userLocalStorage.userPassword,
+        userPhoneNo: userLocalStorage.userPhoneNo,
+        userBalance: userLocalStorage.userBalance,
+        
+    };
 
+    console.log(userLocalStorage.userBalance);
+    localStorage.setItem("User", JSON.stringify(userLocalStorage));
+    const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
+    
+}
+function userDetailsPage() {
+    navigate('/userdetails');
+   // console.log("At line 89 im home page working")
+}
+    
 
     return (
         <>
@@ -71,8 +111,11 @@ export default function Wallet() {
                         </button>
 
 
-                        <NavLink className="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal"
-                        >SignIn</NavLink>
+                        <a className="nav-link text-light"> <span >Welcome</span></a>
+
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
+        
+        className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" onClick={userDetailsPage} alt=""></img>
 
                     </ul>
 
@@ -92,7 +135,7 @@ export default function Wallet() {
                         <div className="col-lg-8 mx-auto text-center">
                             <h1 className="display-6"> Wallet </h1>
                             <Cards
-                                cvv={data.cvv}
+                                cvc={data.cvc}
                                 expiry={data.expiry}
                                 focus={data.focus}
                                 name={data.name}
@@ -150,7 +193,7 @@ export default function Wallet() {
 
                                                     <input className="form-control "
                                                         type="number"
-                                                        name="cvv"
+                                                        name="cvc"
                                                         placeholder="CVV"
                                                         onChange={handleInputChange}
                                                     />
@@ -166,7 +209,7 @@ export default function Wallet() {
                                                     />
                                                 </div>
                                                 <div className="card-footer"> <button type="button" 
-                                            className="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment
+                                            className="subscribe btn btn-primary btn-block shadow-sm" onClick={Moneyadd}> Confirm Payment
                                         </button>
                                     </div>
 

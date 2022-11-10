@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Card, CardGroup, Button, Row } from 'react-bootstrap';
@@ -83,6 +83,10 @@ export default function DefaultHome() {
         navigate('/home');
        // console.log("At line 89 im home page working")
     }
+    function userDetailsPage() {
+        navigate('/userdetails');
+       // console.log("At line 89 im home page working")
+    }
   function theatrepage(movieLocStorage) {
         navigate('/theatre');
         localStorage.setItem("movieLocalStorage", JSON.stringify(movieLocStorage));
@@ -119,10 +123,11 @@ export default function DefaultHome() {
                         <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
                             {location}
                         </button>
+                        <a className="nav-link text-light"> <span >Welcome</span></a>
 
-
-                        <NavLink className="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal"
-                        >SignIn</NavLink>
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
+        
+        className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" onClick={userDetailsPage} alt=""></img>
 
                     </ul>
 

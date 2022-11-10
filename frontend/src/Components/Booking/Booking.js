@@ -77,7 +77,7 @@ export default function Booking(){
             </nav>
 
             <div className="top_space">
-                <div className="body" style={{backgroundColor:"lightgray"}}>
+                <div className="paymentbody" style={{backgroundColor:"lightgray"}}>
                     <div  ref={ref} className="d-flex justify-content-center container mt-5">
                         <div  className="card p-3 bg-white" style={{width:"444px",marginTop:"2rem",marginBottom:"2rem"}}><i className="fa fa-film" />
                             <div className="about-product text-center mt-2"><img src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width={300} />
@@ -105,14 +105,16 @@ export default function Booking(){
                             <div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total Amount Paid</span><span>Rs.totalSeats*240</span></div>
                         </div>
                     </div>
-                   
-                </div>
-            </div>
-
-            <ReactToPrint trigger={()=><button class="btn btn-secondary" style={{width:"100px",marginTop:"1rem",float:"right",marginBottom:"1rem"}} >
+                    
+                    <ReactToPrint trigger={()=><button className="download bg-secondary" style={{width:"150px",height:"30px",color:"white", marginLeft:"45%", marginBottom:"30px"}} >
                  Download
                  </button>} content={()=>ref.current} />
 
+                </div>
+                
+            </div>
+
+            
         </>
     )
 

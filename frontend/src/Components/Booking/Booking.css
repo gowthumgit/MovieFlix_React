@@ -6,6 +6,9 @@
     width: 444px;
   }
   
-.body{
+.paymentbody{
     background-color: lightgray;
 } */ 
+.download{
+    margin-bottom: 50px;
+}

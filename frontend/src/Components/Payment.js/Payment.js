@@ -47,7 +47,10 @@ export default function Payment(){
     const navigateBook = () =>{
         navigate('/booking');
        };
-
+       function userDetailsPage() {
+        navigate('/userdetails');
+       // console.log("At line 89 im home page working")
+    }
 
     return(
         <>
@@ -75,8 +78,11 @@ export default function Payment(){
                         </button>
 
 
-                        <NavLink className="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal"
-                        >SignIn</NavLink>
+                        <a className="nav-link text-light"> <span >Welcome</span></a>
+
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
+        
+        className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" onClick={userDetailsPage} alt=""></img>
 
                     </ul>
                 </div>

@@ -13,6 +13,8 @@ import Booking from './Components/Booking/Booking';
 import Wallet from './Components/Wallet/Wallet';
 import SeatList from './Components/Audi/Seat-List';
 import History from './Components/Home/History/History';
+import UserDetails from './Components/Home/HomePage/UserDetails';
+
 function App() {
   return (
     <div>
@@ -36,6 +38,7 @@ function App() {
                 <Route path ="/wallet" element={<Wallet/>}/>
                 <Route path ="/seat" element={<SeatList/>}/>
                 <Route path ="/history" element={<History/>}/>
+                <Route path ="/userDetails" element={<UserDetails/>}/>
               </Routes>
             </UserAuthContextProvider>
       <Footer />

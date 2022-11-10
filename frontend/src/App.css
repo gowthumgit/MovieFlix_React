@@ -89,7 +89,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-
+bottom: 0;
   min-width: 0;
   word-wrap: break-word;  
 }
@@ -107,13 +107,6 @@ body {
 .template-demo{
  margin-top: 1rem !important;
 }
-footer{
-  position:relative;
-   bottom: 0;
-   width: 100%;
-
-}
-
 
 
 

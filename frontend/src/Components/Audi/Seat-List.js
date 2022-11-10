@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Seat from "./Seat";
+import { Link } from "react-router-dom";
 import './Seat-css.css'
 
 
 export default function SeatList(){
     const[seats,setSeats] = useState([])
     var [selectedSeats, setSelectedSeats] = useState([])
+    
 
     useEffect(function(){
         async function getAllSeats(){
@@ -25,10 +27,13 @@ export default function SeatList(){
     },[selectedSeats])
     return(
         <main className="seatbody">
+            <span>
+                {countAndTotal()}
+            </span>
             <div class="screen"></div>
             <span >
             {seats.map((seat, index) => (
-                <span onClick={() =>handleClick(seat)}>
+                <span className="seats" onClick={() =>handleClick(seat)}>
                     {nextLine(index)}
                     <Seat obj={seat} index={index}  ></Seat>
                 </span>
@@ -36,9 +41,11 @@ export default function SeatList(){
                 
             ))}
             </span>
-            <span>
-                {countAndTotal()}
-            </span>
+            <br></br>
+            <br></br>
+            
+            <button className="btn1 btn-secondary"><Link style={{ color:"white"}} to ="/payment">Make Payment</Link></button>
+            
         </main>
     )
 
@@ -49,7 +56,7 @@ export default function SeatList(){
             console.log("In a")
             return(
                     <h3>Seat Selected : {selectedSeats.map((seat)=>{
-                                             return(<h5>{seat.row}{seat.col}</h5>)
+                                             return(<span>{seat.row}{seat.col} </span>)
                                         })}
                     </h3>
             )
