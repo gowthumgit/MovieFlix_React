@@ -1,12 +1,12 @@
 const express = require('express')
-const SeatController = require('../controllers/seatController')
-const router =  express.Router();
+const router = express.Router()
+const controller = require('../controllers/seatController.js')
 
-router.get('/',SeatController.findAll);
-router.get('/:id',SeatController.findOne);
-router.post('/',SeatController.create);
-router.patch('/:id',SeatController.update);
-router.delete('/:id',SeatController.destroy);
+router.post('/create-seat',controller.createSeat)
+router.get('/get-all-seats',controller.getAllSeats)
+router.get('/get-seat-by-id/:id',controller.getSeatById)
+router.patch('/update-seat-by-id/:id',controller.updateSeatById)
+router.delete('/delete-seat-by-id/:id',controller.deleteSeatById)
+
 
 module.exports = router
-

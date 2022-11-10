@@ -1,35 +1,18 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose')
+const schema = mongoose.Schema
 
-var schema=new mongoose.Schema({
-    /*audiId:{
-        type:String,
-        required:true,
-        unique:true
-    },*/
-    
-    row:{
-        type:String,
-        required:true,
-    } ,
-    col :{
-        type:String,
-        required:true,
+const seatSchema = new schema({
+    row : {
+        type : String
     },
-    seatname :{
-        type:String,
-        required:true,
+    col : {
+        type : Number
     },
-    occupied :{
-        type:String,
-        required:true,
-    },
-    /*price :
-    {
-        type:Number,
-        required:true,
-    }*/
-});
+    status : {
+        type : String
+    }
+},{
+    collection : 'seat'
+})
 
-var seat = new mongoose.model('seat',schema);
-
-module.exports = seat
+module.exports = mongoose.model('Seat',seatSchema)
