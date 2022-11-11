@@ -34,8 +34,8 @@ function CrudEdit(props){
         event.preventDefault();
         async function udpateCrud(){
             try{
-                const response = await axios.patch(`http://localhost:7070/movie/${crud._id}`,crud);
-                navigate(`admin/cruds/${crud._id}`)
+                const response = await axios.patch(`http://localhost:7070/movie/${_id}`,crud);
+                navigate(`/cruds/${crud._id}`)
             }catch(error){
                 console.log(error);
             }
