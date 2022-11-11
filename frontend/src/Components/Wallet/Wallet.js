@@ -111,10 +111,7 @@ function userDetailsPage() {
                             <a className="nav-link text-light" onClick={homepage}>Movies <span className="sr-only">(current)</span></a>
                         </li>
 
-                        <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
-                            {locationLocalStorage}
-                        </button>
-
+                   
 
                         <a className="nav-link text-light"> <span >Welcome</span></a>
 

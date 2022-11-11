@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 import "bootstrap-icons/font/bootstrap-icons.css"
+import axios from "axios";
 
 
 export default function Booking(){
@@ -32,10 +33,9 @@ export default function Booking(){
     function LocationIntilaizer() {
 
         useEffect(() => {
+            addHistory();
             //logic for getting a value from local storage stored under the key 'key'
             const locationLocalStorage = localStorage.getItem('location')
-          console.log("At line 58 im home page working")
-            console.log(locationLocalStorage)
             location(JSON.parse(locationLocalStorage))
         }, [])
 
@@ -87,9 +87,6 @@ export default function Booking(){
            
             seat(JSON.parse(seatLocalStorage))
         }, [])
-        
-console.log("At line 77 in payment");
-console.log(seatLocalStorage)
     }
     SeatIntilaizer();
 
@@ -97,6 +94,28 @@ console.log(seatLocalStorage)
         navigate('/userdetails');
        // console.log("At line 89 im home page working")
     }
+    
+    const hist="Ord"+String(Math.floor(Math.random() * 100))
+    console.log(hist)
+    function addHistory(){
+        
+        const FinalState = {
+            historyId: hist,
+            movieName: movieLocalStorage.name,
+            theatreName: theatreLocalStorage.theatreName,
+            amountPaid: Number((240)*seatLocalStorage.length),
+            userName: userLocalStorage.userId,
+            
+        };
+    
+    
+        const response = axios.post(`http://localhost:7070/history/`,FinalState);
+     
+        navigate('/booking');
+    }
+  
+    
+
 
     return(
         <>
@@ -119,10 +138,7 @@ console.log(seatLocalStorage)
                             <a className="nav-link text-light" onClick={homepage}>Movies <span className="sr-only">(current)</span></a>
                         </li>
 
-                        <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
-                            {locationLocalStorage}
-                        </button>
-
+                       
 
                         <a className="nav-link text-light"> <span >Welcome</span></a>
 
@@ -166,7 +182,7 @@ className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,r
  </span></div>
                                 <div className="d-flex justify-content-between p-price"><span>Show Time</span><span>{timeLocalStorage}</span></div>
                                 <div className="d-flex justify-content-between p-price"><span>Ticket price</span><span>240</span></div>
-                                <div className="d-flex justify-content-between p-price"><span>Email</span><span>userLocalStorage.userId</span></div>
+                                <div className="d-flex justify-content-between p-price"><span>Email</span><span>{userLocalStorage.userId}</span></div>
                             </div>
                             <div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total Amount Paid</span><span>Rs{(240)*seatLocalStorage.length}</span></div>
                         </div>

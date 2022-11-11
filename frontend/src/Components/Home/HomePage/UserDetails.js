@@ -80,10 +80,7 @@ export default function UserDetails() {
                             <a className="nav-link text-light" onClick={homepage}>Movies <span className="sr-only">(current)</span></a>
                         </li>
 
-                        <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
-                            {locationLocalStorage}
-                        </button>
-
+                   
                         <a className="nav-link text-light"> <span >Welcome</span></a>
 
                         <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"

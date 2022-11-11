@@ -44,8 +44,6 @@ export default function Payment(){
         useEffect(() => {
             //logic for getting a value from local storage stored under the key 'key'
             const locationLocalStorage = localStorage.getItem('location')
-          console.log("At line 58 im home page working")
-            console.log(locationLocalStorage)
             location(JSON.parse(locationLocalStorage))
         }, [])
 
@@ -88,8 +86,6 @@ export default function Payment(){
             seat(JSON.parse(seatLocalStorage))
         }, [])
         
-console.log("At line 77 in payment");
-console.log(seatLocalStorage)
     }
     SeatIntilaizer();
 
@@ -110,7 +106,7 @@ console.log(seatLocalStorage)
             
         };
     
-        console.log(userLocalStorage.userBalance);
+        
         localStorage.setItem("User", JSON.stringify(userLocalStorage));
         const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
      
@@ -152,10 +148,7 @@ else{
                             <a className="nav-link text-light" onClick={homepage}>Movies <span className="sr-only">(current)</span></a>
                         </li>
 
-                        <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
-                            {locationLocalStorage}
-                        </button>
-
+                  
 
                         <a className="nav-link text-light"> <span >Welcome</span></a>
 

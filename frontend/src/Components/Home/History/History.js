@@ -12,18 +12,56 @@ function History() {
 	const [historys, sethistory] = useState([]);
 
 	useEffect(function () {
-		async function getHistory() {
+        async function  getHistory() {
 			try {
 				const response = await axios.get("http://localhost:7070/history");
 				sethistory(response.data);
+                //console.log("befor line 16 try brlock")
+                //console.log(response.data)
 			} catch (error) {
 				console.log("error", error);
 			}
 		}
 		getHistory();
+        getFilteredhistory();
 	}, []);
 
+    const [userLocalStorage, userStorage] = useState([]);
+    function UserIntilaizer() {
 
+        useEffect(() => {
+            const userLocalStorage = localStorage.getItem('User')
+            userStorage(JSON.parse(userLocalStorage))
+        }, [])
+
+    }
+    UserIntilaizer();
+   
+
+
+    const [filteredhistory, setFilteredHistory] = useState([]);
+
+
+
+    // setFilteredMovies(movies);
+    function getFilteredhistory() {
+        console.log("At line history")
+        console.log(historys)
+          
+       var filteredhistory = [];
+        for (let i = 0; i < historys.length; i++) {
+                     if (historys[i].userName == userLocalStorage.userId) {
+
+                filteredhistory[i] = historys[i];
+            }
+        }
+        setFilteredHistory(filteredhistory);
+
+    }
+    function userDetailsPage() {
+        navigate('/userdetails');
+       // console.log("At line 89 im home page working")
+    }
 
 
     const navigate = useNavigate();
@@ -34,12 +72,11 @@ function History() {
     
     const [locationLocalStorage, location] = useState([]);
     function LocationIntilaizer() {
-
+       
         useEffect(() => {
+            
             //logic for getting a value from local storage stored under the key 'key'
             const locationLocalStorage = localStorage.getItem('location')
-          console.log("At line 58 im home page working")
-            console.log(locationLocalStorage)
             location(JSON.parse(locationLocalStorage))
         }, [])
 
@@ -69,13 +106,12 @@ function History() {
                             <a className="nav-link text-light" onClick={homepage}>Movies <span className="sr-only">(current)</span></a>
                         </li>
 
-                        <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
-                            {locationLocalStorage}
-                        </button>
+                       
+                        <a className="nav-link text-light"> <span >Welcome</span></a>
 
+<img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
 
-                        <NavLink className="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal"
-                        >SignIn</NavLink>
+className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" onClick={userDetailsPage} alt=""></img>
 
                     </ul>
 
@@ -90,7 +126,7 @@ function History() {
 			<div style={{ textAlign: "center" }}>
                 <h1 >Booking History</h1>
 				<div className="d-flex flex-wrap">
-					{historys.map((history) => {
+					{filteredhistory.map((history) => {
 						return (
                             <span>
 							<div
