@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import './Payment.css';
+import "./Payment.css"
 import { useNavigate } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
@@ -75,6 +75,12 @@ export default function Payment(){
    
 
     const [seatLocalStorage, seat] = useState([]);
+    function bookSeats(){
+        seatLocalStorage.forEach(async(item)=>{
+         item.status = "occupied"
+         axios.patch(`http://localhost:7070/seat//update-seat-by-id/${item._id}`,item)
+        })
+     }
     function SeatIntilaizer() {
         
         useEffect(() => {
@@ -109,8 +115,9 @@ export default function Payment(){
         
         localStorage.setItem("User", JSON.stringify(userLocalStorage));
         const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
-     
+        bookSeats();
         navigate('/booking');
+        
     }
     else {
 

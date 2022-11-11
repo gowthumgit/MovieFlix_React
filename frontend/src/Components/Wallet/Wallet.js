@@ -7,6 +7,12 @@ import Cards from 'react-credit-cards';
 import { useEffect, useState } from "react";
 import "react-credit-cards/es/styles-compiled.css";
 
+// import {
+//     formatCreditCardNumber,
+//     formatCVC,
+//     formatExpirationDate
+//   } from './card-utils';
+
 export default function Wallet() {
     const initialState = {
         userId: "",
@@ -111,7 +117,10 @@ function userDetailsPage() {
                             <a className="nav-link text-light" onClick={homepage}>Movies <span className="sr-only">(current)</span></a>
                         </li>
 
-                   
+                        <button type="button" className="btn " data-toggle="modal" data-target="#exampleModal">
+                            {locationLocalStorage}
+                        </button>
+
 
                         <a className="nav-link text-light"> <span >Welcome</span></a>
 
@@ -160,8 +169,10 @@ function userDetailsPage() {
                                                     <input className="form-control "
                                                         type="number"
                                                         name="number"
+                                                        pattern="[\d| ]{16,22}"
                                                         placeholder="Card Number"
                                                         onChange={handleInputChange}
+                                                        // format={formatCreditCardNumber}
                                                     />
                                                 </div>
                                                 <div className="form-group">
@@ -182,8 +193,10 @@ function userDetailsPage() {
                                                     <input className="form-control "
                                                         type="text"
                                                         name="expiry"
+                                                        pattern="\d{4}"
                                                         placeholder="Expire Date"
                                                         onChange={handleInputChange}
+                                                        // format={formatExpirationDate}
                                                     />
                                                 </div>
 
@@ -194,8 +207,10 @@ function userDetailsPage() {
                                                     <input className="form-control "
                                                         type="number"
                                                         name="cvc"
+                                                        pattern="[\d|]{3,4}"
                                                         placeholder="CVV"
                                                         onChange={handleInputChange}
+                                                        // format={formatCVC}
                                                     />
                                                 </div>
                                                 <div className="form-group">

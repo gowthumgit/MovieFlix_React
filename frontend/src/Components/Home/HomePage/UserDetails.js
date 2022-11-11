@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Container, Card, CardGroup, Button, Row } from 'react-bootstrap';
 
 export default function UserDetails() {
+    
     const initialState = {
         userId: "",
         userEmail: "",

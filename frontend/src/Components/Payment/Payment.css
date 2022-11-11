@@ -14,24 +14,23 @@
 }
 .summary-container{
     width: 500px;
-    background-color: #7FB3D5;
+    background-color: lightgray;
 }
 .center{
     text-align: center;
-
-    color: #E71666;
+    margin-top: 15px;
+    color: black;
 }
 .list-group{
     display: flex;
-    justify-content: space-around;
-    
-    
+    justify-content: space-around; 
 }
+
 .list-group-item{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+    background-color: whitesmoke;
 
 }
 .d-flex1{
@@ -52,3 +51,4 @@
 .bi{
     margin-right: 10px;
 }
+

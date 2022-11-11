@@ -65,6 +65,9 @@ export default function SeatList(){
 
 
     function handleClick(seat){
+        if(seat.status === "occupied"){
+            return
+        }
         if(selectedSeats.includes(seat)){
             var temp = [...selectedSeats]
             temp.splice(selectedSeats.indexOf(seat),1)
