@@ -61,6 +61,7 @@ export default function Wallet() {
     };
 
 function Moneyadd(){
+    if (window.confirm('Are you sure to Make Payment')) {
     console.log("At Wallet lin 56")
     console.log(data.amount);
     console.log(userLocalStorage.userBalance); 
@@ -77,7 +78,11 @@ function Moneyadd(){
     console.log(userLocalStorage.userBalance);
     localStorage.setItem("User", JSON.stringify(userLocalStorage));
     const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
-    
+    window.alert("Payment Successful")
+}
+else{
+
+}
 }
 function userDetailsPage() {
     navigate('/userdetails');

@@ -10,10 +10,18 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 
 export default function Payment(){
-    
+    const initialState = {
+        userId: "",
+        userEmail: "",
+        userPassword: "",
+        userPhoneNo: "",
+        userBalance: "",
+        
+    };
+
 
     const [movieLocalStorage, movieLocalStorageData] = useState([]);
-    function TheatreIntilaizer() {
+    function MovieIntilaizer() {
 
         useEffect(() => {
             //logic for getting a value from local storage stored under the key 'key'
@@ -22,7 +30,7 @@ export default function Payment(){
         }, [])
 
     }
-    TheatreIntilaizer();
+    MovieIntilaizer();
 
     const navigate = useNavigate();
     function homepage() {
@@ -44,13 +52,84 @@ export default function Payment(){
     }
     LocationIntilaizer();
 
-    const navigateBook = () =>{
-        navigate('/booking');
-       };
+    
+    const [theatreLocalStorage, theatre] = useState([]);
+    function TheatreIntilaizer() {
+
+        useEffect(() => {
+            //logic for getting a value from local storage stored under the key 'key'
+            const theatreLocalStorage = localStorage.getItem('Theatre')
+           theatre(JSON.parse(theatreLocalStorage))
+        }, [])
+
+    }
+    TheatreIntilaizer();
+    const [userLocalStorage, userStorage] = useState([]);
+    function UserIntilaizer() {
+
+        useEffect(() => {
+            const userLocalStorage = localStorage.getItem('User')
+            userStorage(JSON.parse(userLocalStorage))
+        }, [])
+
+    }
+    UserIntilaizer();
+   
+
+    const [seatLocalStorage, seat] = useState([]);
+    function SeatIntilaizer() {
+        
+        useEffect(() => {
+            
+            
+            //logic for getting a value from local storage stored under the key 'key'
+            const seatLocalStorage = localStorage.getItem('selectedSeats')
+           
+            seat(JSON.parse(seatLocalStorage))
+        }, [])
+        
+console.log("At line 77 in payment");
+console.log(seatLocalStorage)
+    }
+    SeatIntilaizer();
+
        function userDetailsPage() {
         navigate('/userdetails');
        // console.log("At line 89 im home page working")
     }
+    function payment(){
+        if (Number(userLocalStorage.userBalance)>Number((240)*seatLocalStorage.length)){
+        if (window.confirm('Are you sure to Make Payment')) {
+        userLocalStorage.userBalance=Number(userLocalStorage.userBalance)-Number((240)*seatLocalStorage.length);
+        const FinalState = {
+            userId: userLocalStorage.userId,
+            userEmail: userLocalStorage.userEmail,
+            userPassword: userLocalStorage.userPassword,
+            userPhoneNo: userLocalStorage.userPhoneNo,
+            userBalance: userLocalStorage.userBalance,
+            
+        };
+    
+        console.log(userLocalStorage.userBalance);
+        localStorage.setItem("User", JSON.stringify(userLocalStorage));
+        const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
+     
+        navigate('/booking');
+    }
+    else {
+
+    }
+}
+else {
+    if (window.confirm('Money Sufficient!!! Proceed to Wallet ???')) {
+navigate('/wallet')
+}
+else{
+
+}
+}
+    }
+
 
     return(
         <>
@@ -107,22 +186,31 @@ export default function Payment(){
                         <h1 className="center">Payment Summary</h1>
                         <div className="card-body">
                             <ul className="list-group">
-                                <li className="list-group-item"><span>Total Tickets   <i class="bi bi-ticket-perforated-fill"></i></span> <span>2</span></li>
-
-                                <li className="list-group-item"><span>Seat Numbers   <i class="bi bi-archive-fill"></i> </span> <span>S1,S2</span> </li>
+                                <li className="list-group-item"><span>Total Tickets   <i class="bi bi-ticket-perforated-fill"></i></span> <span>{seatLocalStorage.length}</span></li>
+                                <li className="list-group-item"><span>Seat Numbers   <i class="bi bi-archive-fill"></i> </span><span>
+                                {seatLocalStorage.map((seatdataval)=>{
+                                    return(
+                                         <span>
+                                            {seatdataval.row}{seatdataval.col} ,
+                                            </span> 
+                                    )
+                                    
+                                })}
+                                </span>
+                                </li>
                                 
                                 <li className="list-group-item"><span>Tickets Each Price   <i class="bi bi-cash"></i> </span> <span>Rs.240</span> </li>
 
-                                <li className="list-group-item"><span>Tickets Subtotal   <i class="bi bi-bag-check-fill"></i></span> <span>Rs.480</span></li>
+                                <li className="list-group-item"><span>Tickets Subtotal   <i class="bi bi-bag-check-fill"></i></span> <span>Rs{(240)*seatLocalStorage.length}</span></li>
 
                               
 
-                                <li className="list-group-item"><span>Email   <i class="bi bi-envelope-fill"></i></span> <span>Rama@gmail.com</span></li> 
+                                <li className="list-group-item"><span>Email   <i class="bi bi-envelope-fill"></i></span> <span>{userLocalStorage.userId}</span></li> 
 
                             </ul>
-                            <p className="d-flex1"><span>Payment Amount <i class="bi bi-wallet"></i></span> <span>Rs.480</span></p>
+                            <p className="d-flex1"><span>Payment Amount <i class="bi bi-wallet"></i></span> <span>Rs{(240)*Number(seatLocalStorage.length)}</span></p>
                             <div className="new">
-                                <button className="btn btn-primary" onClick={navigateBook} data-toggle="modal"><i class="bi bi-lock"></i> Make Payment </button>
+                                <button className="btn btn-primary" onClick={payment} data-toggle="modal"><i class="bi bi-lock"></i> Make Payment </button>
                                 
                             </div>
                         </div>

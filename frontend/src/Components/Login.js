@@ -42,7 +42,7 @@ const Login = () => {
     if(!flag){
         const user = {
           userId : number,
-          userPhoneNo: number,
+          userEmail: number,
           userBalance: 0
         }
         try{

@@ -31,7 +31,7 @@ export default function Theatre() {
     }, []);
 
     const [movieLocalStorage, movieLocalStorageData] = useState([]);
-    function TheatreIntilaizer() {
+    function MovieIntilaizer() {
 
         useEffect(() => {
             //logic for getting a value from local storage stored under the key 'key'
@@ -40,7 +40,7 @@ export default function Theatre() {
         }, [])
 
     }
-    TheatreIntilaizer();
+    MovieIntilaizer();
 
 
 
@@ -50,7 +50,7 @@ export default function Theatre() {
         // console.log("At line 89 im home page working")
     }
     function seatpage() {
-        navigate('/seat');
+        
         // console.log("At line 89 im home page working")
     }
     
@@ -72,7 +72,16 @@ export default function Theatre() {
         navigate('/userdetails');
        // console.log("At line 89 im home page working")
     }
-   // functiom theatreLocalStorage()
+    function theatreLocalStorage(theatreValues,timeVal){
+        console.log("At theatre page line 76")
+        localStorage.setItem("Theatre", JSON.stringify(theatreValues));
+        localStorage.setItem("Time", JSON.stringify(timeVal));
+        console.log(theatreValues)
+        console.log(timeVal)
+        navigate('/seat');
+        
+
+    }
 
     return (
         <>
@@ -142,7 +151,7 @@ className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,r
                                     <div>
                                         {theatre.showTime.map((times) => {
                                             return (
-                                                <span ><button type="button " className="timeButton btn-primary leftspace " onClick={seatpage}>{times}</button></span>
+                                                <span ><button type="button " className="timeButton btn-primary leftspace " onClick={()=>theatreLocalStorage(theatre,times)}>{times}</button></span>
                                             )
                                         })}
 

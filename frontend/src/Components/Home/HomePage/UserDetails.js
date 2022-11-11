@@ -99,42 +99,38 @@ export default function UserDetails() {
 
 
 
-            <div className="top_space bg-light">
-                <h1 style={{textAlign:"center"}}> User Details</h1>
-                <br></br>
-                <br></br>
-
-
-                <table className="table table-bordered" style={{textAlign:"center"}}>
-                    <thead>
-                        <tr>
-                            <th scope="col" ><i class="bi bi-person-badge"></i>User Id</th>
-                            <th scope="col"><i class="bi bi-envelope"></i>User Email</th>
-                            <th scope="col"> <i class="bi bi-telephone-fill"></i>User Phone</th>
-                            <th scope="col"> <i class="bi bi-currency-rupee"></i>User balance</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row">{FinalState.userId}</td>
-                            <td>{FinalState.userEmail}</td>
-                            <td>{FinalState.userPhoneNo}</td>
-                            <td>{FinalState.userBalance}</td>
-
-                            <td className="text-center edit-block">
-                                <span className="edit" >
-                                    <button type="button" className="btn btn-success btn-sm mr-2"
-                                    style={{width:"100px"}}><Link style={{ color:"white"}} to ="/wallet">Add Money</Link></button>
-                                </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
 
 <br></br>
-            </div >
+<br></br>
+<br></br>
+<br></br>
+
+            <div className="main-container">
+
+                    <div className=" card summary-container" style={{backgroundColor:"lightgray",boxShadow:"1px 3px 1px gray"}}>
+                        <h1 className="center" style={{color:"black"}}>User Details</h1>
+                        <div className="card-body">
+                            <ul className="list-group">
+                                <li className="list-group-item"><span><i class="bi bi-person-badge"></i>  User Id </span> <span>{FinalState.userId}</span></li>
+
+                                <li className="list-group-item"><span><i class="bi bi-envelope"></i>  User Email </span> <span>{FinalState.userEmail}</span> </li>
+
+                                <li className="list-group-item"><span> <i class="bi bi-telephone-fill"></i>   User Phone</span> <span>{FinalState.userPhoneNo}</span> </li>
+                                
+                                <li className="list-group-item"><span> <i class="bi bi-currency-rupee"></i>   User Balance</span> <span>{FinalState.userBalance}</span> </li>
+                                                        
+
+                            </ul>
+                            <div className="new">
+                            <button type="button" className="btn btn-success btn-sm mr-2"
+                                    style={{width:"100px",marginTop:"1rem",marginLeft:"2rem"}} ><Link style={{ color:"white"}} to ="/wallet">Add Money</Link></button>
+                            <button type="button" className="btn btn-success btn-sm mr-2"
+                                    style={{width:"100px",marginTop:"1rem",marginLeft:"2rem"}} ><Link style={{ color:"white"}} to ="/history">View History</Link></button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <br></br>
             
             <br></br>

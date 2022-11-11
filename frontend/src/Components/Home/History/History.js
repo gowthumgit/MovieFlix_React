@@ -92,12 +92,13 @@ function History() {
 				<div className="d-flex flex-wrap">
 					{historys.map((history) => {
 						return (
+                            <span>
 							<div
-								className="card"
-								style={{ width: 250, margin: 30 }}
+								className="card summany-container"
+								style={{ width: "500px", margin: 30,boxShadow:"3px 3px 3px gray" }}
 								key={history._id}
 							>
-								<div class="card-header">
+								<div class="card-header" style={{backgroundColor:"#5D6D7E"}}>
 									<h5 className="card-title">
 										
 											{history.historyId}
@@ -111,22 +112,26 @@ function History() {
 											{history.movieName}
 									
 									</h5>
-									<p className="card-text limit-char">
-                                    <i class="bi bi-bag"></i>
-                                        {history.theatreName}</p>
-									<p className="card-text d-flex align-items-center">
+									
+                                    <h6 className="d-flex align-items-center">
+                                    <i className="bi bi-bag"></i>
+                                        {history.theatreName}
+                                    </h6>
+									<p className="card-text d-flex" >
 									<i class="bi bi-currency-rupee"></i>
 									
 											{history.amountPaid}
 										
 									</p>
                                     
-                                    <p className="card-text limit-char">
+                                    <h6 className="d-flex align-items-center">
                                     <i class="bi bi-person-badge-fill"></i>
-                                    {history.userName}</p>
+                                    {history.userName}
+                                    </h6>
 								</div>
 								
 							</div>
+                            </span>
 						);
 					})}
 				</div>

@@ -11,7 +11,7 @@ export default function Booking(){
     const ref=useRef();
 
     const [movieLocalStorage, movieLocalStorageData] = useState([]);
-    function TheatreIntilaizer() {
+    function MovieIntilaizer() {
 
         useEffect(() => {
             //logic for getting a value from local storage stored under the key 'key'
@@ -20,7 +20,7 @@ export default function Booking(){
         }, [])
 
     }
-    TheatreIntilaizer();
+    MovieIntilaizer();
 
     const navigate = useNavigate();
     function homepage() {
@@ -41,7 +41,62 @@ export default function Booking(){
 
     }
     LocationIntilaizer();
+    const [theatreLocalStorage, theatre] = useState([]);
+    function TheatreIntilaizer() {
 
+        useEffect(() => {
+            //logic for getting a value from local storage stored under the key 'key'
+            const theatreLocalStorage = localStorage.getItem('Theatre')
+           theatre(JSON.parse(theatreLocalStorage))
+        }, [])
+
+    }
+    TheatreIntilaizer();
+    const [timeLocalStorage,time] = useState([]);
+    function TimeIntilaizer() {
+
+        useEffect(() => {
+            //logic for getting a value from local storage stored under the key 'key'
+            const timeLocalStorage = localStorage.getItem('Time')
+            time(JSON.parse(timeLocalStorage))
+        }, [])
+
+    }
+    TimeIntilaizer();
+    const [userLocalStorage, userStorage] = useState([]);
+    function UserIntilaizer() {
+
+        useEffect(() => {
+            const userLocalStorage = localStorage.getItem('User')
+            userStorage(JSON.parse(userLocalStorage))
+        }, [])
+
+    }
+    UserIntilaizer();
+   
+
+   
+    const [seatLocalStorage, seat] = useState([]);
+    function SeatIntilaizer() {
+        
+        useEffect(() => {
+            
+            
+            //logic for getting a value from local storage stored under the key 'key'
+            const seatLocalStorage = localStorage.getItem('selectedSeats')
+           
+            seat(JSON.parse(seatLocalStorage))
+        }, [])
+        
+console.log("At line 77 in payment");
+console.log(seatLocalStorage)
+    }
+    SeatIntilaizer();
+
+    function userDetailsPage() {
+        navigate('/userdetails');
+       // console.log("At line 89 im home page working")
+    }
 
     return(
         <>
@@ -69,8 +124,11 @@ export default function Booking(){
                         </button>
 
 
-                        <NavLink className="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal"
-                        >SignIn</NavLink>
+                        <a className="nav-link text-light"> <span >Welcome</span></a>
+
+<img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
+
+className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" onClick={userDetailsPage} alt=""></img>
 
                     </ul>
                 </div>
@@ -95,14 +153,22 @@ export default function Booking(){
                             </div>
 
                             <div className="">
-                                <div className="d-flex justify-content-between p-price"><span>Movie Name</span><span>Name</span></div>
-                                <div className="d-flex justify-content-between p-price"><span>Theatre Name</span><span>theatre Name</span></div>
-                                <div className="d-flex justify-content-between p-price"><span>Seats</span><span>Seats</span></div>
-                                <div className="d-flex justify-content-between p-price"><span>Show Time</span><span>time1</span></div>
+                                <div className="d-flex justify-content-between p-price"><span>Movie Name</span><span>{movieLocalStorage.name}</span></div>
+                                <div className="d-flex justify-content-between p-price"><span>Theatre Name</span><span>{theatreLocalStorage.theatreName}</span></div>
+                                <div className="d-flex justify-content-between p-price"><span>Seats</span><span> {seatLocalStorage.map((seatdataval)=>{
+                                    return(
+                                         <span>
+                                            {seatdataval.row}{seatdataval.col} ,
+                                            </span> 
+                                    )
+                                    
+                                })}
+ </span></div>
+                                <div className="d-flex justify-content-between p-price"><span>Show Time</span><span>{timeLocalStorage}</span></div>
                                 <div className="d-flex justify-content-between p-price"><span>Ticket price</span><span>240</span></div>
-                                <div className="d-flex justify-content-between p-price"><span>Email</span><span>Email</span></div>
+                                <div className="d-flex justify-content-between p-price"><span>Email</span><span>userLocalStorage.userId</span></div>
                             </div>
-                            <div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total Amount Paid</span><span>Rs.totalSeats*240</span></div>
+                            <div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total Amount Paid</span><span>Rs{(240)*seatLocalStorage.length}</span></div>
                         </div>
                     </div>
                     
