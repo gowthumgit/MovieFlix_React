@@ -70,7 +70,7 @@ function CrudDetails(props){
 
             <div className="btn-group">
                 
-                <Link to="admin/cruds/table-view" className="btn btn-secondary">
+                <Link to="cruds/table-view" className="btn btn-secondary">
                     Close
                 </Link>
             </div>

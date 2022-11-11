@@ -12,7 +12,7 @@ function CrudDelete(props) {
 		function () {
 			async function deleteCrudById() {
 				try {
-					const response = await axios.get(`http://localhost:7070/api/movie/${_id}`);
+					const response = await axios.get(`http://localhost:7070/movie/${_id}`);
 					setCrud(response.data);
 				} catch (error) {
 					console.log("error", error);
@@ -27,7 +27,7 @@ function CrudDelete(props) {
 	async function handleDelete() {
 		try {
 			await axios.delete(`http://localhost:7070/movie/${_id}`);
-			navigate("admin/cruds/table-view");
+			navigate("/cruds/table-view");
 		} catch (error) {
 			console.error(error);
 		}
@@ -71,13 +71,13 @@ function CrudDelete(props) {
             </p>
 
             <div className="btn-group">
-                <Link to={`admin/cruds/${crud._id}/edit`} className="btn btn-primary">
+                <Link to={`/cruds/${crud._id}/edit`} className="btn btn-primary">
                     Edit
                 </Link>
                 <button onClick={handleDelete} className="btn btn-danger">
                     Delete
                 </button>
-                <Link to="admin/cruds" className="btn btn-secondary">
+                <Link to="/cruds" className="btn btn-secondary">
                     Close
                 </Link>
             </div>

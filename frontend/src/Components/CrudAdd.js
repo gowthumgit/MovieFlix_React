@@ -26,7 +26,7 @@ function CrudAdd(props) {
             try{
                 const response = await CrudService.createCrud(crud).then(res => {
                     console.log("success")
-                    navigate(`admin/cruds/${res.data._id}`)
+                    navigate(`/cruds/${res.data._id}`)
                 })
 
             }catch(error){

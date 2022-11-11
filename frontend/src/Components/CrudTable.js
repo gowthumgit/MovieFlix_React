@@ -53,13 +53,13 @@ function CrudTable() {
 									<td>{crud.actors}</td>
 									<td>{crud.genre}</td>
 									<td>
-										<Link to={`admin/cruds/${crud._id}`} className="btn btn-warning">
+										<Link to={`/cruds/${crud._id}`} className="btn btn-warning">
 											View
 										</Link>
 									</td>
 									<td>
 										<Link
-											to={`admin/cruds/${crud._id}/edit`}
+											to={`/cruds/${crud._id}/edit`}
 											className="btn btn-success"
 										>
 											Edit
@@ -67,7 +67,7 @@ function CrudTable() {
 									</td>
 									<td>
 										<Link
-											to={`admin/cruds/${crud._id}/delete`}
+											to={`/cruds/${crud._id}/delete`}
 											className="btn btn-danger"
 										>
 											Delete
