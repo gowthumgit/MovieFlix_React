@@ -108,10 +108,10 @@ export default function UserDetails() {
                 <table className="table table-bordered" style={{textAlign:"center"}}>
                     <thead>
                         <tr>
-                            <th scope="col">User Id</th>
-                            <th scope="col">User Email</th>
-                            <th scope="col">User Phone</th>
-                            <th scope="col">User balance</th>
+                            <th scope="col" ><i class="bi bi-person-badge"></i>User Id</th>
+                            <th scope="col"><i class="bi bi-envelope"></i>User Email</th>
+                            <th scope="col"> <i class="bi bi-telephone-fill"></i>User Phone</th>
+                            <th scope="col"> <i class="bi bi-currency-rupee"></i>User balance</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>

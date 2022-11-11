@@ -115,7 +115,7 @@ export default function Payment(){
 
                                 <li className="list-group-item"><span>Tickets Subtotal   <i class="bi bi-bag-check-fill"></i></span> <span>Rs.480</span></li>
 
-                                <li className="list-group-item"><span>Name   <i class="bi bi-person-circle"></i> </span> <span>Rama</span></li>
+                              
 
                                 <li className="list-group-item"><span>Email   <i class="bi bi-envelope-fill"></i></span> <span>Rama@gmail.com</span></li> 
 

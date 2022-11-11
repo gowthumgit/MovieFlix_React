@@ -72,6 +72,7 @@ export default function Theatre() {
         navigate('/userdetails');
        // console.log("At line 89 im home page working")
     }
+   // functiom theatreLocalStorage()
 
     return (
         <>

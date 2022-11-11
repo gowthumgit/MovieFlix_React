@@ -123,9 +123,6 @@ function userDetailsPage() {
 
             </nav>
 
-
-
-
             <div className="top_space bg-light">
 
                 <div className="container py-5" id="PaymentForm">
@@ -154,7 +151,8 @@ function userDetailsPage() {
                                             <form action="">
                                                 <div className="form-group">
                                                     <label for="cardNumber">
-                                                        <h6>Card number</h6>
+                                                        
+                                                        <h6><i class="bi bi-credit-card-2-back-fill"></i>Card number</h6>
                                                     </label>
 
                                                     <input className="form-control "
@@ -166,7 +164,7 @@ function userDetailsPage() {
                                                 </div>
                                                 <div className="form-group">
                                                     <label for="username">
-                                                        <h6>Card Owner</h6>
+                                                        <h6><i class="bi bi-person-check-fill"></i>Card Owner</h6>
                                                     </label>
 
                                                     <input className="form-control "
@@ -177,7 +175,7 @@ function userDetailsPage() {
                                                     />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label><h6>Expiry date</h6></label>
+                                                    <label><h6><i class="bi bi-calendar-check-fill"></i>Expiry date</h6></label>
 
                                                     <input className="form-control "
                                                         type="text"
@@ -189,7 +187,7 @@ function userDetailsPage() {
 
 
                                                 <div className="form-group">
-                                                    <label><h6>CVV</h6></label>
+                                                    <label><h6><i class="bi bi-diamond-fill"></i>CVV</h6></label>
 
                                                     <input className="form-control "
                                                         type="number"
@@ -199,7 +197,7 @@ function userDetailsPage() {
                                                     />
                                                 </div>
                                                 <div className="form-group">
-                                                    <label><h6>Amount</h6></label>
+                                                    <label><h6><i class="bi bi-currency-rupee"></i>Amount</h6></label>
 
                                                     <input className="form-control "
                                                         type="number"
