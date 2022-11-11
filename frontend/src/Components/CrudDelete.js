@@ -27,7 +27,7 @@ function CrudDelete(props) {
 	async function handleDelete() {
 		try {
 			await axios.delete(`http://localhost:7070/movie/${_id}`);
-			navigate("admin/cruds/table-view");
+			navigate("/cruds/table-view");
 		} catch (error) {
 			console.error(error);
 		}
