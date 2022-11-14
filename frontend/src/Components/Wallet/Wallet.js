@@ -85,6 +85,7 @@ function Moneyadd(){
     localStorage.setItem("User", JSON.stringify(userLocalStorage));
     const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
     window.alert("Payment Successful")
+    navigate('/booking');
 }
 else{
 

@@ -124,7 +124,7 @@ export default function Payment(){
     }
 }
 else {
-    if (window.confirm('Money Sufficient!!! Proceed to Wallet ???')) {
+    if (window.confirm('Money Insufficient! Proceed to Wallet ?')) {
 navigate('/wallet')
 }
 else{

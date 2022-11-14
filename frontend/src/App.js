@@ -14,6 +14,14 @@ import Wallet from './Components/Wallet/Wallet';
 import SeatList from './Components/Audi/Seat-List';
 import History from './Components/Home/History/History';
 import UserDetails from './Components/Home/HomePage/UserDetails';
+import Admin from './Components/Admin/Admin';
+import CrudTable from './Components/CrudTable';
+import CrudDetails from './Components/Admin/AdminMovies/CrudDetails';
+import CrudAdd from './Components/Admin/AdminMovies/CrudAdd';
+import UserGridView from './Components/Admin/AdminUsers/UserGridView';
+import UserDetailsAdmin from './Components/Admin/AdminUsers/UserDetailsAdmin';
+import CrudEdit from './Components/Admin/AdminMovies/CrudEdit';
+import AdminLogin from './Components/Admin/AdminLogin';
 
 
 function App() {
@@ -31,6 +39,8 @@ function App() {
                   }
                 />
                 <Route path="/" element={<Login />} />
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/phonesignup" element={<PhoneSignUp />} />
                 <Route path ="/theatre" element={<Theatre/>}/>
@@ -40,6 +50,12 @@ function App() {
                 <Route path ="/seat" element={<SeatList/>}/>
                 <Route path ="/history" element={<History/>}/>
                 <Route path ="/userDetails" element={<UserDetails/>}/>
+                <Route path="/movies" element={<CrudTable />} />
+                <Route path="/movies/:id" element={<CrudDetails />} />
+                <Route path="/movies/edit/:id" element={<CrudEdit />} />
+                {<Route path="/movies/add" element={<CrudAdd />} />}
+                <Route path="/users" element={<UserGridView />} />
+                <Route path="/users/:id" element={<UserDetailsAdmin />} />
               </Routes>
             </UserAuthContextProvider>
       <Footer />
