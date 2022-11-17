@@ -11,7 +11,7 @@ function UserDetails(props){
         function(){
             async function getUserById(){
                 try{
-                    const response = await axios.get(`http://localhost:7070/user/${_id}`);
+                    const response = await axios.get(`http://localhost:7070/userrc/${_id}`);
                     setUser(response.data);
                 }catch(error){
                     console.log("error",error);
@@ -24,7 +24,7 @@ function UserDetails(props){
 
     async function handleDelete(){
         try{
-            const response = await axios.delete(`http://localhost:7070/user/${_id}`);
+            const response = await axios.delete(`http://localhost:7070/userrc/${_id}`);
             setUser(response.data);
         }catch(error){
             console.log("error",error);

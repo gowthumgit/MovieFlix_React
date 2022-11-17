@@ -48,7 +48,7 @@ const MovieRoute = require('./app/routes/MovieRoutes')
 app.use('/movie',MovieRoute)
 
 const UserRoute = require('./app/routes/userRoutes')
-app.use('/user',UserRoute)
+app.use('/userrc',UserRoute)
 
 const CartRoute = require('./app/routes/cartRoutes')
 app.use('/cart',CartRoute)

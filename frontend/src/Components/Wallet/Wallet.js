@@ -83,7 +83,7 @@ function Moneyadd(){
 
     console.log(userLocalStorage.userBalance);
     localStorage.setItem("User", JSON.stringify(userLocalStorage));
-    const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
+    const response = axios.patch(`http://localhost:7070/userrc/${userLocalStorage._id}`,FinalState);
     window.alert("Payment Successful")
 }
 else{

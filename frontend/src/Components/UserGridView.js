@@ -8,7 +8,7 @@ function UserGridView() {
 	useEffect(function () {
 		async function getUsers() {
 			try {
-				const response = await axios.get("http://localhost:7070/user");
+				const response = await axios.get("http://localhost:7070/userrc");
 				setUsers(response.data);
 			} catch (error) {
 				console.log("error", error);

@@ -52,8 +52,8 @@ const PhoneSignUp = () => {
           userBalance: 0
         }
         try{
-          const response = axios.post('http://localhost:7070/user',user)
-          console.log(response)
+          const response = axios.post('http://localhost:7070/userrc',user)
+          
         }catch(error){
           console.log(error)
         }
@@ -62,7 +62,7 @@ const PhoneSignUp = () => {
   }
 
   async function getUsers(){
-    const res = await axios.get('http://localhost:7070/user')
+    const res = await axios.get('http://localhost:7070/userrc')
     setUser(res.data)
   }
 

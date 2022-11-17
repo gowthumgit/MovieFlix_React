@@ -33,8 +33,8 @@ const Signup = () => {
       userBalance: 0
     }
     try{
-      const response = await axios.post('http://localhost:7070/user',user)
-      console.log(response)
+      const response = await axios.post('http://localhost:7070/userrc',user)
+      
     }catch(error){
       console.log(error)
     }

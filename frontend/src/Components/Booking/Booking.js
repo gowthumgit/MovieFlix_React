@@ -33,7 +33,7 @@ export default function Booking(){
     function LocationIntilaizer() {
 
         useEffect(() => {
-            addHistory();
+    
             //logic for getting a value from local storage stored under the key 'key'
             const locationLocalStorage = localStorage.getItem('location')
             location(JSON.parse(locationLocalStorage))
@@ -95,25 +95,7 @@ export default function Booking(){
        // console.log("At line 89 im home page working")
     }
     
-    const hist="Ord"+String(Math.floor(Math.random() * 100))
-    console.log(hist)
-    function addHistory(){
-        
-        const FinalState = {
-            historyId: hist,
-            movieName: movieLocalStorage.name,
-            theatreName: theatreLocalStorage.theatreName,
-            amountPaid: Number((240)*seatLocalStorage.length),
-            userName: userLocalStorage.userId,
-            
-        };
     
-    
-        const response = axios.post(`http://localhost:7070/history/`,FinalState);
-     
-        navigate('/booking');
-    }
-  
     
 
 

@@ -51,9 +51,9 @@ export default function SeatList(){
 
 
     function countAndTotal(){
-        console.log("hjgcjh")
+        //console.log("hjgcjh")
         if(selectedSeats.length > 0){
-            console.log("In a")
+           // console.log("In a")
             return(
                     <h3>Seat Selected : {selectedSeats.map((seat)=>{
                                              return(<span>{seat.row}{seat.col} </span>)
@@ -75,7 +75,7 @@ export default function SeatList(){
         }else{
             setSelectedSeats([...selectedSeats,seat])
         }
-        console.log(selectedSeats)
+      //  console.log(selectedSeats)
     }
 
     function nextLine(index){

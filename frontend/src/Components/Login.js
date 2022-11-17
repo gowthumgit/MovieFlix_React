@@ -16,9 +16,6 @@ const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState([])
 
-  useEffect(()=>{
-    getUsers()
-  },[])
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -46,8 +43,8 @@ const Login = () => {
           userBalance: 0
         }
         try{
-          const response = axios.post('http://localhost:7070/user',user)
-          console.log(response)
+          const response = axios.post('http://localhost:7070/userrc',user)
+          
         }catch(error){
           console.log(error)
         }
@@ -59,16 +56,16 @@ const Login = () => {
     console.log("Im in loginUser function")
     console.log(user)
     user.forEach(function(item){
-      console.log(item.userId === email)
+     //console.log(item.userId === email)
       if(item.userId === email){
-        console.log("Im in if")
+       //console.log("Im in if")
         localStorage.setItem("User", JSON.stringify(item));
       }
     })
   }
   
   async function getUsers(){
-    const res = await axios.get('http://localhost:7070/user')
+    const res = await axios.get('http://localhost:7070/userrc')
     setUser(res.data)
   }
    

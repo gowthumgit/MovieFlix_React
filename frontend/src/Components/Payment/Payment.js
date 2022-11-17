@@ -114,8 +114,9 @@ export default function Payment(){
     
         
         localStorage.setItem("User", JSON.stringify(userLocalStorage));
-        const response = axios.patch(`http://localhost:7070/user/${userLocalStorage._id}`,FinalState);
+        axios.patch(`http://localhost:7070/userrc/${userLocalStorage._id}`,FinalState);
         bookSeats();
+        addHistory()
         navigate('/booking');
         
     }
@@ -132,6 +133,28 @@ else{
 }
 }
     }
+
+    const hist="Ord"+String(Math.floor(Math.random() * 100))
+   // console.log(hist)
+    function addHistory(){
+        
+        const FinalStage = {
+            historyId: hist,
+            movieName: movieLocalStorage.name,
+            theatreName: theatreLocalStorage.theatreName,
+            amountPaid: Number((240)*seatLocalStorage.length),
+            userName: userLocalStorage.userId,
+            
+        };
+    
+    
+         axios.post('http://localhost:7070/history/',FinalStage);
+        console.log("Booking page line 113")
+        console.log(FinalStage)
+        //console.log(response.data)
+    
+    }
+  
 
 
     return(
