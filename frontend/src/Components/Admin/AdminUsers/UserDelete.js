@@ -12,7 +12,7 @@ function UserDelete(props) {
 		function () {
 			async function deleteUserById() {
 				try {
-					const response = await axios.get(`http://localhost:7070/user/${id}`);
+				//	const response = await axios.get(`http://localhost:7070/user/${id}`);
 					const response = await axios.get(`http://localhost:7070/userrc/${_id}`);
 					setUser(response.data);
 				} catch (error) {
