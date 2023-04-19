@@ -1,0 +1,7 @@
+db.seat.insertMany([{"row":0,"col":1,"status":""},{"row":0,"col":2,"status":""},{"row":0,"col":3,"status":""},{"row":0,"col":4,"status":""},{"row":0,"col":5,"status":""},{"row":0,"col":6,"status":""},{"row":0,"col":7,"status":""},{"row":0,"col":8,"status":""},{"row":0,"col":9,"status":""},{"row":0,"col":10,"status":""},{"row":0,"col":11,"status":""},{"row":0,"col":12,"status":""}])
+
+db.seat.insertMany([{"row":1,"col":1,"status":""},{"row":1,"col":2,"status":""},{"row":1,"col":3,"status":""},{"row":1,"col":4,"status":""},{"row":1,"col":5,"status":""},{"row":1,"col":6,"status":""},{"row":1,"col":7,"status":""},{"row":1,"col":8,"status":""},{"row":1,"col":9,"status":""},{"row":1,"col":10,"status":""},{"row":1,"col":11,"status":""},{"row":1,"col":12,"status":""}])
+
+db.seat.insertMany([{"row":2,"col":1,"status":""},{"row":2,"col":2,"status":""},{"row":2,"col":3,"status":""},{"row":2,"col":4,"status":""},{"row":2,"col":5,"status":""},{"row":2,"col":6,"status":""},{"row":2,"col":7,"status":""},{"row":2,"col":8,"status":""},{"row":2,"col":9,"status":""},{"row":2,"col":10,"status":""},{"row":2,"col":11,"status":""},{"row":2,"col":12,"status":""}])
+
+db.seat.insertMany([{"row":3,"col":1,"status":""},{"row":3,"col":2,"status":""},{"row":3,"col":3,"status":""},{"row":3,"col":4,"status":""},{"row":3,"col":5,"status":""},{"row":3,"col":6,"status":""},{"row":3,"col":7,"status":""},{"row":3,"col":8,"status":""},{"row":3,"col":9,"status":""},{"row":3,"col":10,"status":""},{"row":3,"col":11,"status":""},{"row":3,"col":12,"status":""}])
